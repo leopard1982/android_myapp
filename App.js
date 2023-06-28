@@ -1,129 +1,49 @@
-import React, {useState, userEffect} from 'react';
+import React, {useState} from 'react';
+import {View, StatusBar, Text, Switch, StyleSheet, TextInput, ScrollView, Image} from 'react-native';
 
-import {View, Text, InputText} from 'react-native';
+import Header from './src/components/Header';
+import Taop from './src/components/TouchableOpacity';
+import MyInput from './src/components/Inputan';
+import Test1 from './src/components/test';
 
 const App = () => {
+  let [saklar, setSaklar]=useState(false)
   return (
-      <View style={{
-        flex:1,
-        backgroundColor:'white'
-        }}>
-        <View style={{
-          backgroundColor:"rgba(255,255,0,0.3)",
-          flex:1,
-          marginTop:30,
-          paddingVertical:10,
-          alignItems:'center',
-          }}>
-          <Text style={{fontSize:30,fontStyle:'italic'}}>Hello World!</Text>
-        </View>
-        <View style={{
-          backgroundColor:"rgba(255,255,0,0.8)",
-          flex:6,
-          alignItems:'center',
-          justifyContent:'center'
-          }}>
-          <View style={{
-            backgroundColor:'red',
-            width:'100%',
-            height:100,
-            borderRadius:10,
-            margin:10,
-            alignItems:'center'
-            }}>
-              <Text style={{
-                marginTop:30,
-                color:'white'
-              }}>Hallo Guys!</Text>
+      
+      <View style={{flex:1}}>
+          <Header apps="Point of Sales"/>  
+      
+          <ScrollView>
+            <View style={{flexDirection:'row',justifyContent:'flex-end'}}>
+              <Text style={{paddingTop:15}}>Bahasa Indonesia: </Text>
+              <Switch value={saklar} onValueChange={() => setSaklar(!saklar)} />
             </View>
-          <View style={{
-            backgroundColor:'green',
-            width:'90%',
-            borderRadius:50,
-            marginVertical:10,
-            paddingHorizontal:30,
-            paddingVertical:10,
-            marginHorizontal:10,
-            borderWidth:3,
-            borderColor:'grey'
-            }}>
-              <Text style={{color:'white',textAlign:'center'}}>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-              </Text>
+            <Taop />
+            <MyInput />
+            <MyInput />
+            <MyInput />
+            <MyInput />
+            <MyInput />
+            <Test1 />
+          </ScrollView>          
+          <View>
+            <Text style={style.textFooter}>by: leopard, inc - 2023</Text>
+            <Text style={{fontWeight:"bold"}}>Hallo</Text>
           </View>
-          <View style={{
-            marginVertical:10,
-            flexDirection:'row',
-            width:'100%',
-            paddingHorizontal:10,
-            backgroundColor:'red',
-            }}>
-            <Text style={{marginHorizontal:5,color:'white'}}>Menu1</Text>
-            <Text style={{marginHorizontal:5,color:'white'}}>Menu2</Text>
-            <Text style={{marginHorizontal:5,color:'white'}}>Menu3</Text>
-            <Text style={{marginHorizontal:5,color:'white'}}>Menu4</Text>
-            <Text style={{marginHorizontal:5,color:'white'}}>Menu5</Text>
-            <Text style={{marginHorizontal:5,color:'white'}}>Menu6</Text>
-            <Text style={{marginHorizontal:5,color:'white'}}>Menu7</Text>
-          </View>
-          <View style={{
-            marginVertical:10,
-            backgroundColor:'orange',
-            width:'95%',
-            borderRadius:5,
-            paddingHorizontal:5,
-            flexDirection:'row'
-          }}>
-            <View style={{
-              flex:1,
-              alignItems:'center'
-              }}>
-              <Text style={{color:'white'}}>hallo1</Text>              
-            </View>
-            <View style={{
-              flex:1,
-              alignItems:'center'
-              }}>
-              <Text style={{color:'white'}}>hallo2</Text>              
-            </View>            
-            <View style={{
-              flex:1,
-              alignItems:'center'
-              }}>
-              <Text style={{color:'white'}}>hallo3</Text>              
-            </View>
-          </View>
-        <View style={{
-            marginVertical:10,
-            backgroundColor:'orange',
-            width:'95%',
-            borderRadius:5,
-            paddingHorizontal:5,
-            flexDirection:'row'
-          }}>
-            <View style={{
-              flex:1,
-              alignItems:'center'
-              }}>
-              <Text style={{color:'white'}}>hallo1</Text>              
-            </View>
-            <View style={{
-              flex:1,
-              alignItems:'center'
-              }}>
-              <Text style={{color:'white'}}>hallo2</Text>              
-            </View>            
-            <View style={{
-              flex:1,
-              alignItems:'center'
-              }}>
-              <Text style={{color:'white'}}>hallo3</Text>              
-            </View>
-          </View>
-        </View>
       </View>
-
     );
 }
+
+const style = StyleSheet.create({
+  textFooter: {
+    fontSize:20,
+    backgroundColor:'rgba(0,0,255,1)',
+    marginTop:10,
+    fontWeight:'bold',
+    textAlign:'center',
+    padding:5,
+    color:'white'
+  }
+});
 
 export default App;
